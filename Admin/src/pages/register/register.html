@@ -1,0 +1,141 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title primary>Pagina de Registro</ion-title>
+    </ion-toolbar>
+  <ion-navbar>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider>
+    <img src="/assets/imgs/user.png" style="align-items: center">
+</ion-item-divider>
+<form [formGroup]="formGroup">
+  <ion-list>
+      <ion-item>
+          <ion-label>
+            Nombre
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="userModel.nombre" formControlName="nombre" ></ion-input>
+        </ion-item>
+          <ion-item *ngIf="nombre.hasError('required') && nombre.touched ">
+          <p>
+    *Valid Name is required
+          </p>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>
+                Apellido Paterno
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="userModel.apellidoPaterno" formControlName="apellidoPaterno" ></ion-input>
+            </ion-item>
+              <ion-item *ngIf="apellidoPaterno.hasError('required') && apellidoPaterno.touched ">
+              <p>
+        *Valid Name is required
+              </p>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label>
+                    Apellido Materno
+                  </ion-label>
+                  <ion-input type="text" [(ngModel)]="userModel.apellidoMaterno" formControlName="apellidoMaterno" ></ion-input>
+                </ion-item>
+                  <ion-item *ngIf="apellidoMaterno.hasError('required') && apellidoMaterno.touched ">
+                  <p>
+            *Valid Name is required
+                  </p>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label>
+                        Nombre de usuario
+                      </ion-label>
+                      <ion-input type="text" [(ngModel)]="userModel.nombreUsuario" formControlName="nombreUsuario" ></ion-input>
+                    </ion-item>
+                      <ion-item *ngIf="nombreUsuario.hasError('required') && nombreUsuario.touched ">
+                      <p>
+                *Valid User Name is required
+                      </p>
+                      </ion-item>
+
+                      <ion-item>
+                          <ion-label>
+                            Password
+                          </ion-label>
+                          <ion-input type="password" [(ngModel)]="userModel.password" formControlName="password"></ion-input>
+                        </ion-item>
+                        <ion-item *ngIf="password.hasError('required') && password.touched">
+                          <p>
+                      *Type a valid password
+                          </p>
+                          </ion-item>
+
+                          <ion-item>
+                              <ion-label>
+                                Confirm Password
+                              </ion-label>
+                              <ion-input appConfirmEqualValidator="password" type="password" [(ngModel)]="userModel.confirmPassword" formControlName="confirmPassword"></ion-input>
+                            </ion-item>
+                            <ion-item *ngIf="confirmPassword.hasError('required') && confirmPassword.touched">
+                              <p>
+                          *Type a valid password
+                              </p>
+                              </ion-item>
+                              <ion-item *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual">
+                                  <p>
+                              *Passwords does not match
+                                  </p>
+                                  </ion-item>
+
+    <ion-item>
+      <ion-label>
+        E-mail
+      </ion-label>
+      <ion-input type="email" [(ngModel)]="userModel.email" formControlName="email" ></ion-input>
+    </ion-item>
+      <ion-item *ngIf="(email.hasError('required') && email.touched)">
+      <p>
+*Valid email is required
+      </p>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>
+          Numero telefonico
+          </ion-label>
+          <ion-input type="number" [(ngModel)]="userModel.numeroTelefonico" formControlName="numeroTelefonico" ></ion-input>
+        </ion-item>
+          <ion-item *ngIf="numeroTelefonico.hasError('required') && numeroTelefonico.touched ">
+          <p>
+    *Valid phone number is required
+          </p>
+          </ion-item>
+
+  </ion-list>
+<ion-grid>
+<ion-col>
+
+</ion-col>
+<ion-col>
+<ion-row>
+<button type="submit"  [disabled]="formGroup.invalid" ion-button full color="light" (click)="crearCuenta($event, userModel)" >
+  Crear Cuenta
+</button>
+</ion-row>
+<ion-row>
+<button ion-button full color="danger" (click)="cancelar()" >
+  Cancelar
+</button>
+</ion-row>
+</ion-col>
+<ion-col>
+
+</ion-col>
+</ion-grid>
+
+</form>
+
+</ion-content>

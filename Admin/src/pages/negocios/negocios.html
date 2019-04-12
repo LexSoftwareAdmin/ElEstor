@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Listado de negocios : {{userModel.nombreUsuario}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+    <ion-item-divider>
+        <img src="/assets/imgs/iconos-formas-de-envio-2.png" style="align-items: center">
+    </ion-item-divider>
+
+<ion-item-divider>
+  <ion-list>
+    <ion-item-sliding *ngFor="let biz of negocioModel">
+      <ion-item>
+          <ion-card *ngIf="imgSource" (click)="negocioDetalle(biz)" >
+              <ion-card-header>
+                <ion-card-title>{{biz.nombre}}</ion-card-title>
+                <img [src]="imgSource" style="align-items: center"/>
+              </ion-card-header>
+              <ion-card-content>
+                Horarios de atencion: <br/>
+                de {{biz.horaapertura}} a {{biz.horacierre}} <br/>
+                Descripcion : {{biz.descripcion}}
+              </ion-card-content>
+            </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-item-divider>
+
+<!-- <ion-item-divider> -->
+
+    <ion-fab bottom right>
+        <button ion-fab (click)="agregarNegocio($event)">+</button>
+    </ion-fab>
+    <!-- <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> -->
+<!-- <button ion-button full color="light" (click)="agregarNegocio($event)" >
+  Agregar Negocio
+</button> -->
+<!-- </ion-item-divider> -->
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detalle del negocio: {{negocioModel.nombre}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item-divider>
+        <ion-list>
+          <ion-item-sliding >
+            <ion-item>
+                <ion-card *ngIf="imgSource" (click)="agregarProducto(negocioModel)" >
+                    <ion-card-header>
+                      <ion-card-title>{{negocioModel.nombre}}</ion-card-title>
+                      <img [src]="imgSource" style="align-items: center"/>
+                    </ion-card-header>
+                    <ion-card-content>
+                      Horarios de atencion: <br/>
+                      de {{negocioModel.horaapertura}} a {{negocioModel.horacierre}} <br/>
+                      Descripcion : {{negocioModel.descripcion}}
+                    </ion-card-content>
+                  </ion-card>
+            </ion-item>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-item-divider>
+
+      <ion-item-divider>
+          <button (click)="verMapa(negocioModel)" >
+          Ir al mapa
+          </button>
+      </ion-item-divider>
+
+<ion-item-divider *ngIf="mostrarDiv" >
+    <ion-label color="danger">
+        Aun no has agregado ningun producto!!
+    </ion-label>
+  </ion-item-divider>
+  <ion-item-divider>
+  <button ion-button full color="light" (click)="agregarProducto(negocioModel)" >
+    Agregar Nuevo Producto
+  </button>
+  </ion-item-divider>
+
+</ion-content>

@@ -1,0 +1,67 @@
+
+<ion-header>
+<ion-toolbar color="secondary">
+    <ion-title primary>Inicio de Sesion</ion-title>
+</ion-toolbar>
+  <ion-navbar>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item-divider>
+
+        <ion-card *ngIf="imgSource">
+            <img [src]="imgSource">
+        </ion-card>
+   
+    </ion-item-divider>
+  <form [formGroup]="formGroup">
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          E-mail
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="userModel.email" formControlName="email" ></ion-input>
+      </ion-item>
+        <ion-item *ngIf="email.hasError('required') && email.touched ">
+        <p>
+*Valid email is required
+        </p>
+        </ion-item>
+      <ion-item>
+        <ion-label>
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="userModel.password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="password.hasError('required') && password.touched">
+        <p>
+    *Type a valid password
+        </p>
+        </ion-item>
+
+    </ion-list>
+<ion-grid>
+<ion-col>
+
+</ion-col>
+<ion-col>
+<ion-row>
+  <button  type="submit"  [disabled]="formGroup.invalid" ion-button full color="light" (click)="iniciarSesion($event, userModel)" >
+    Iniciar Sesion
+</button>
+</ion-row>
+<ion-row>
+  <button ion-button full color="danger" (click)="recuperarCuenta()" >
+    Olvide Mi Contrasenia
+</button>
+</ion-row>
+</ion-col>
+<ion-col>
+
+</ion-col>
+</ion-grid>
+
+  </form>
+</ion-content>

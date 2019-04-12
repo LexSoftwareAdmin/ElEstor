@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>nuevonegocio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item-divider>
+
+      <ion-card *ngIf="imgSource">
+          <img [src]="imgSource">
+      </ion-card>
+      <ion-icon name="camera" (click)="capturarFoto()" >
+
+      </ion-icon>
+  </ion-item-divider>
+  <form [formGroup]="formGroup">
+    <ion-list>
+  <ion-item>
+      <ion-label>
+        Nombre del negocio
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="negocio.nombre" formControlName="nombre" ></ion-input>
+    </ion-item>
+      <ion-item *ngIf="nombre.hasError('required') && nombre.touched ">
+      <p>
+      *Nombre del negocio es obligatorio
+      </p>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>
+            Calle y Numero
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="negocio.callenumero" formControlName="callenumero" ></ion-input>
+        </ion-item>
+          <ion-item *ngIf="callenumero.hasError('required') && callenumero.touched ">
+          <p>
+    *Calle y numero es obligatorio
+          </p>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>
+                Colonia
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="negocio.colonia" formControlName="colonia" ></ion-input>
+            </ion-item>
+              <ion-item *ngIf="colonia.hasError('required') && colonia.touched ">
+              <p>
+        *Colonia es obligatorio
+              </p>
+              </ion-item>
+
+              <ion-item>
+                  <ion-label>
+                    Ciudad
+                  </ion-label>
+                  <ion-input type="text" [(ngModel)]="negocio.ciudad" formControlName="ciudad" ></ion-input>
+                </ion-item>
+                  <ion-item *ngIf="ciudad.hasError('required') && ciudad.touched ">
+                  <p>
+            *Ciudad es obligatorio
+                  </p>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label>
+                        Estado
+                      </ion-label>
+                      <ion-input type="text" [(ngModel)]="negocio.estado" formControlName="estado"></ion-input>
+                    </ion-item>
+                    <ion-item *ngIf="estado.hasError('required') && estado.touched">
+                      <p>
+                  *Estado es obligatorio
+                      </p>
+                      </ion-item>
+
+                      <ion-item>
+                        <ion-label>
+                          Codigo Postal
+                        </ion-label>
+                        <ion-input type="text" [(ngModel)]="negocio.codigopostal" formControlName="codigopostal"></ion-input>
+                      </ion-item>
+                      <ion-item *ngIf="codigopostal.hasError('required') && codigopostal.touched">
+                        <p>
+                    *Codigo Postal es obligatorio
+                        </p>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>
+                              Hora Apertura
+                            </ion-label>
+                            <ion-input type="time" [(ngModel)]="negocio.horaapertura" formControlName="horaapertura"></ion-input>
+                          </ion-item>
+                          <ion-item *ngIf="horaapertura.hasError('required') && horaapertura.touched">
+                            <p>
+                        *Hora Apertura es obligatorio
+                            </p>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>
+                                  Hora Cierre
+                                </ion-label>
+                                <ion-input type="time" [(ngModel)]="negocio.horacierre" formControlName="horacierre"></ion-input>
+                              </ion-item>
+                              <ion-item *ngIf="horacierre.hasError('required') && horacierre.touched">
+                                <p>
+                            *Hora Cierre es obligatorio
+                                </p>
+                                </ion-item>
+                                <ion-item>
+                                  <ion-label>Categoria</ion-label>
+                                  <ion-select placeholder="Selecciona una cagetoria">
+                                    <ion-option value="cat.id_catNegocio" *ngFor="let cat of catnegocio">Female</ion-option>
+                                  </ion-select>
+                                </ion-item>
+                          <!-- <ion-item>
+                            <ion-label>
+                              Categoria
+                            </ion-label>
+                            <ion-input type="text" [(ngModel)]="negocio.categoria" formControlName="categoria"></ion-input>
+                          </ion-item> -->
+                          <ion-item *ngIf="categoria.hasError('required') && categoria.touched">
+                            <p>
+                        *Categoria es obligatorio
+                            </p>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>
+                                  Subcategoria
+                                </ion-label>
+                                <ion-input type="text" [(ngModel)]="negocio.subcategoria" formControlName="subcategoria"></ion-input>
+                              </ion-item>
+                              <ion-item *ngIf="subcategoria.hasError('required') && subcategoria.touched">
+                                <p>
+                            *Subcategoria es obligatorio
+                                </p>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label>
+                                      Descripcion
+                                    </ion-label>
+                                    <ion-input type="text" [(ngModel)]="negocio.descripcion" formControlName="descripcion"></ion-input>
+                                  </ion-item>
+                                  <ion-item *ngIf="descripcion.hasError('required') && descripcion.touched">
+                                    <p>
+                                *Descripcion es obligatorio
+                                    </p>
+                                    </ion-item>
+
+
+
+
+
+    </ion-list>
+  <ion-grid>
+  <ion-col>
+
+  </ion-col>
+  <ion-col>
+  <ion-row>
+  <button type="submit"  [disabled]="formGroup.invalid" ion-button full color="light" (click)="agregarNegocio($event, negocio)" >
+    Agregar Negocio
+  </button>
+  </ion-row>
+  <ion-row>
+  <button ion-button full color="danger" (click)="cancelar()" >
+    Cancelar
+  </button>
+  </ion-row>
+  </ion-col>
+  <ion-col>
+
+  </ion-col>
+  </ion-grid>
+
+  </form>
+
+  </ion-content>

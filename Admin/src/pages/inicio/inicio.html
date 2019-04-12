@@ -1,0 +1,30 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Bienvenido  a tu perfil {{userModel.nombreUsuario}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item-divider>
+        <ion-card *ngIf="imgSource">
+            <img [src]="imgSource">
+        </ion-card>
+    </ion-item-divider>
+<h1>Opciones del Menú</h1>
+  <ion-list>
+
+    <button ion-item (click)="verPerfil($event)">
+    <ion-img src="/assets/imgs/user.png"></ion-img>
+      Mi Perfil
+    </button>
+    <button ion-item (click)="verPedidos($event)" >
+        <ion-img src="/assets/imgs/tienda-online-icono-png.png"></ion-img>
+     Mis Pedidos
+    </button>
+    <button ion-item (click)="verNegocios($event)" >
+        <ion-img src="/assets/imgs/iconos-formas-de-envio-2.png"></ion-img>
+        Mis Negocios
+      </button>
+  </ion-list>
+</ion-content>

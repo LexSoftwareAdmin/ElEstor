@@ -1,0 +1,7 @@
+{
+  "name": "ionic-elestor-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

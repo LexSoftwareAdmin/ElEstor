@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      El Estor Admin Panel
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+ <ion-item-divider>
+    <img src="/assets/imgs/ElEstorLogoCuadroyAza.png" >
+ </ion-item-divider>
+
+<ion-grid>
+<ion-row>
+    <p >
+        Bienvenido, desde aqui podras administrar tu negocio
+    </p>
+</ion-row>
+<ion-row>
+  <ion-col >
+      <button ion-button full (click)="goToLoginPage()">
+          Inciar Sesion
+        </button>
+  </ion-col>
+  <ion-col>
+      <button ion-button full (click)="goToRegisterPage()">
+          Registrarse
+        </button>
+    </ion-col>
+</ion-row>
+<ion-row>
+    <ion-footer>
+        <ion-toolbar>
+            <p>
+                Powered by
+                Lex Software S.A. de C.V. All Rights Reserved 2019
+            </p>
+        </ion-toolbar>
+      </ion-footer>
+</ion-row>
+
+</ion-grid>
+
+</ion-content>
