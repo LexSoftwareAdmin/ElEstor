@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Registrarse
+    </ion-title>
+    <!--<ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/session"></ion-back-button>
+    </ion-buttons>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row margin-top justify-content-center>
+    <ion-avatar class="avatar">
+      <img [src]="usr.foto" class="back">
+      <ion-icon (click)="Show_Action_Sheet()" class="circle-button front" name="add-circle"></ion-icon>
+    </ion-avatar>
+  </ion-row>  
+  <ion-row justify-content-center margin-bottom>
+    <h6>
+      Registrate
+    </h6>
+  </ion-row>
+  <div text-center>
+    <ion-row class="input-container-up">
+      <ion-input class="input-login" placeholder="Nombre(s)" (ionInput)="validate_inputs($event.target,'text')" [(ngModel)]="usr.nombre"></ion-input>
+    </ion-row>
+    <ion-row class="input-container-down">
+      <ion-input class="input-login" placeholder="Apellido Paterno" (ionInput)="validate_inputs($event.target,'text')" [(ngModel)]="usr.apellidoPaterno"></ion-input>
+    </ion-row>
+    <ion-row class="input-container-down">
+      <ion-input class="input-login" placeholder="Apellido Materno" (ionInput)="validate_inputs($event.target,'text')" [(ngModel)]="usr.apellidoMaterno"></ion-input>
+    </ion-row>
+    <ion-row class="input-container-down">
+      <ion-input class="input-login" placeholder="Email" (ionInput)="validate_inputs($event.target,'email')" [(ngModel)]="usr.email"></ion-input>
+    </ion-row>
+    <ion-row class="input-container-down">
+      <ion-input placeholder="Contraseña" class="input-login" type="password" (ionInput)="validate_inputs($event.target,'password')" [(ngModel)]="usr.contrasena"></ion-input>
+    </ion-row>
+    <ion-row class="input-container-down">
+      <ion-input placeholder="Confirmar Contraseña" class="input-login" type="password" (ionInput)="validate_inputs($event.target,'password')" [(ngModel)]="confirmPassword"></ion-input>
+    </ion-row>
+    <ion-row justify-content-center>
+      <a (click)="Create_Account()" class="login-text" router-direction="forward">Crear cuenta</a>
+    </ion-row>
+    <ion-row justify-content-center>
+      <a (click)="Cancel()" class="password-text" router-direction="back">Cancelar</a>
+    </ion-row>
+  </div>
+</ion-content>

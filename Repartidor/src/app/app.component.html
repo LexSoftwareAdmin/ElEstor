@@ -1,0 +1,105 @@
+<ion-app>
+  <ion-menu style="--width:100%;" side="start" menuId="menu">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu Opciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <div style="margin-top: 2vw; margin-left: 2vw; display: inline-block; position: relative;">
+              <img src="assets/menu.png" style="width:8vw; height: 8vw;" (click)="toggleSideMenu()" />
+              <ion-badge color="danger" *ngIf="notifications>0"
+                style="position: absolute; top:-2vw; right: -4vw; --padding-start:5px; --padding-end:5px;">
+                {{notifications}}</ion-badge>
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div style="cursor:pointer; display: inline-block; margin-top: -3vw; vertical-align: middle;">
+              <img src="assets/ElEstorLogoCuadroyAza.png" style="width:30vw; height: 20vw;" />
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top:-2vw;">
+          <div style="margin-left: 3vw;">
+            <ion-avatar style="width: 20vw; height: 20vw; float: left;">
+              <!--<img [src]="userData.fotografia">-->
+              <img src="{{foto}}">
+            </ion-avatar>
+            <div style="margin-top: 4vw; margin-left: 4vw; float: left;">
+              <strong
+                style="font-weight: bold;">{{userData.nombre + ' ' + userData.apellidoPaterno + ' ' + userData.apellidoMaterno}}</strong>
+              <div style="margin-top:3vw;" *ngIf="userData.valoracion>0">
+                <ion-icon *ngIf="userData.valoracion>=1" style="width: 1.1em;" name="star" color="warning"></ion-icon>
+                <ion-icon *ngIf="userData.valoracion>=2" style="width: 1.1em;" name="star" color="warning"></ion-icon>
+                <ion-icon *ngIf="userData.valoracion>=3" style="width: 1.1em;" name="star" color="warning"></ion-icon>
+                <ion-icon *ngIf="userData.valoracion>=4" style="width: 1.1em;" name="star" color="warning"></ion-icon>
+                <ion-icon *ngIf="userData.valoracion>=5" style="width: 1.1em;" name="star" color="warning"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="option=='menu'">
+        <ion-row style="margin-top:15vw;">
+          <ion-list style="width: 100%;">
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <!--<img [src]="userData.fotografia">-->
+                <img src="{{foto}}">
+              </ion-avatar>
+              <ion-label>
+                <h2>Ver Mi Perfil</h2>
+              </ion-label>
+              <ion-button fill="clear" slot="end" (click)="verPerfil()">Ver</ion-button>
+            </ion-item>
+            <ion-item lines="none" style="margin-top: 2vw;">
+              <ion-avatar slot="start">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+              </ion-avatar>
+              <ion-label>
+                <h2>Pedidos En Espera</h2>
+              </ion-label>
+              <ion-button fill="clear" slot="end" (click)="pedidosEnEspera()">Ver</ion-button>
+            </ion-item>
+            <ion-item lines="none" style="margin-top: 2vw;">
+              <ion-avatar slot="start">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+              </ion-avatar>
+              <ion-label>
+                <h2>Pedidos Completados</h2>
+              </ion-label>
+              <ion-button fill="clear" slot="end">Ver</ion-button>
+            </ion-item>
+            <ion-item lines="none" style="margin-top: 2vw;">
+              <ion-avatar slot="start">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+              </ion-avatar>
+              <ion-label>
+                <h2>Soporte</h2>
+              </ion-label>
+              <ion-button fill="clear" slot="end">Ver</ion-button>
+            </ion-item>
+          </ion-list>
+        </ion-row>
+        <ion-row justify-content-center style="margin-top: 3vw;">
+          <h5 style="font-weight: 400;">Total de Efectivo Actual.</h5>
+        </ion-row>
+        <ion-row justify-content-center style="margin-top: -2vw;">
+          <h5 style="font-weight: bold;">{{cash |  number: '.0'}} MXN</h5>
+        </ion-row>
+        <ion-row justify-content-center>
+          <ion-button fill="clear">Regresar</ion-button>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="option=='pedidosEnEspera'">
+        <ion-row>
+          <h4 style="margin-left:10pt;">Pedidos en Espera</h4>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main [swipeGesture]="false"></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Iniciar sesi&oacute;n
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/session"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row margin-top justify-content-center>
+    <ion-avatar class="avatar">
+      <img src="assets/user.png">
+    </ion-avatar>
+  </ion-row>
+  <ion-row justify-content-center margin-bottom>
+    <h6>
+      Ingresa tus datos
+    </h6>
+  </ion-row>
+  <div text-center margin-top>
+    <ion-row class="input-container-up">
+      <ion-input class="input-login" placeholder="Email" (ionInput)="validate_input($event.target,'email')" [(ngModel)]="usr.email"></ion-input>
+    </ion-row>
+    <ion-row class="input-container-down">
+      <ion-input placeholder="Contraseña" class="input-login" (ionInput)="validate_input($event.target,'password')" type="password" [(ngModel)]="usr.contrasena"></ion-input>
+    </ion-row>
+    <ion-row justify-content-center>
+        <a (click)="Submit_Form()" class="login-text" router-direction="forward">Iniciar Sesi&oacute;n</a>
+    </ion-row>
+    <ion-row justify-content-center >
+        <a (click)="Reset_Password()" [ngClass]="{disabled:cont<3}" class="password-text" router-direction="forward">Olvide mi contraseña</a>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "ElEstorRepartidor",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

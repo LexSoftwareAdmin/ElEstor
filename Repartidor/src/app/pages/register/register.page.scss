@@ -1,0 +1,52 @@
+.avatar{
+    width: 23vh;
+    height: 23vh;
+}
+
+.input-login{
+    border:1px solid #ccc;
+    border-radius: 6px;
+    font-size:12px;
+    height: 5vh;
+}
+
+.input-container-up{
+    width: 65%;
+    margin:auto;
+}
+
+.input-container-down{
+    width: 65%;
+    margin: 4% auto 4% auto;
+}
+
+.login-text{
+    color:#3880ff;
+    margin-top:10spx;
+    font-size: 18px;
+}
+
+.password-text{
+    color:#f04141;
+    margin-top:15px;
+    font-size: 18px;
+}
+
+.circle-button{
+    margin-top: -6vh;
+    margin-right: -1vh;
+    color: #f04141;
+    width: 7vh;
+    height: 7vh;
+    float: right;
+}
+
+.back{
+    z-index: 0;
+    position: relative;
+}
+
+.front{
+    z-index: 1;
+    position: relative;
+}

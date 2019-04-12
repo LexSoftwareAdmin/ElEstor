@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Principal
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map"></div>
+  <div id="icon">
+    <img src="assets/menu.png" style="width:8vw; height: 8vw;" (click)="toggleSideMenu()" />
+    <ion-badge *ngIf="notifications>0" color="danger"
+      style="position: absolute; top:-2vw; right: -4vw; --padding-start:5px; --padding-end:5px;">{{notifications}}
+    </ion-badge>
+  </div>
+  <div id="logo" (click)="newPedido()">
+    <img src="assets/ElEstorLogoCuadroyAza.png" style="width: 30vw; height: 20vw;">
+  </div>
+  <div id="btnGroup"
+    style="background-color:#fff; margin-top:3vw; border:1px solid #ccc; border-radius:6px; margin-right:3vw; width:9vw; height:18vw;">
+    <div style="width: 100%; height: 50%; text-align:center;">
+      <!--<img src="assets/menu.png" style="width:70%; height:70%;">-->
+      <ion-icon [ngClass]="{disabled:helpDisabled}" name="help-circle-outline" style="width: 80%; height: 80%;"
+        color="primary" (click)="Help()"></ion-icon>
+    </div>
+    <div style="width:100%; height:50%; border-top:1px solid #ccc;">
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search for a place or address"></ion-searchbar>
+  </ion-toolbar>
+</ion-footer>
